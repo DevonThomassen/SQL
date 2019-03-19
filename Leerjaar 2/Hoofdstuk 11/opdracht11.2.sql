@@ -42,7 +42,8 @@ SELECT [OrderNumber]
 FROM [Order]
 JOIN [OrderItem]
 ON [Order].[Id] = [OrderItem].[OrderId]
-WHERE [OrderItem].[Quantity] > 200;
+GROUP BY [OrderNumber]
+HAVING SUM([OrderItem].[Quantity]) > 200;
 
 -- 7. Selecteer alle klanten die ooit een product van leverancier 'Zaanse Snoepfabriek' hebben besteld. Je moet verplicht joins gebruiken. (27 rows)
 SELECT *
